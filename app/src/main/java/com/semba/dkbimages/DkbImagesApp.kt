@@ -1,8 +1,10 @@
 package com.semba.dkbimages
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
+@HiltAndroidApp
 class DkbImagesApp: Application() {
 
     override fun onCreate() {
