@@ -9,6 +9,12 @@ A simple app that fetches placeholder images api and displays image content
 * Unit and integration test 
 
 
+## Features to improve/add
+- [X] Pagination
+- [X] Offline first
+- [X] Compose testing
+
+
 ## Screenshots
 
 <p align="center">
