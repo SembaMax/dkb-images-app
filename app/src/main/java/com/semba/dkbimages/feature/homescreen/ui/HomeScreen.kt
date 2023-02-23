@@ -3,22 +3,17 @@ package com.semba.dkbimages.feature.homescreen.ui
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.*
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.semba.dkbimages.compose.navigation.ScreenDestination
+import com.semba.dkbimages.design.navigation.ScreenDestination
 import com.semba.dkbimages.data.model.ImageModel
-import com.semba.dkbimages.R
+import com.semba.dkbimages.design.component.ErrorView
+import com.semba.dkbimages.design.component.LoadingView
 
 @Composable
 fun HomeScreen(navigateTo: (screenDestination: ScreenDestination, args: Map<String, String>) -> Unit) {
@@ -55,21 +50,5 @@ fun HomeContent(modifier: Modifier = Modifier, gridState: LazyGridState = rememb
         items(imageItems.size) {
             ImageGridItem(modifier = Modifier.clickable { onItemClick(imageItems[it]) }, item = imageItems[it])
         }
-    }
-}
-
-@Composable
-fun LoadingView(modifier: Modifier = Modifier) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround) {
-        CircularProgressIndicator(modifier.size(40.dp))
-        Text(text = stringResource(id = R.string.loading), style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.onBackground, modifier = Modifier.padding(5.dp))
-    }
-}
-
-@Composable
-fun ErrorView(modifier: Modifier = Modifier) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround) {
-        Icon(painter = painterResource(id = R.drawable.ic_error), contentDescription = "error", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(80.dp))
-        Text(text = stringResource(id = R.string.error), style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
     }
 }

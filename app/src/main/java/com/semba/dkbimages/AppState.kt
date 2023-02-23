@@ -6,7 +6,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navOptions
-import com.semba.dkbimages.compose.navigation.ScreenDestination
+import com.semba.dkbimages.design.navigation.ScreenDestination
 import com.semba.dkbimages.core.NetworkMonitor
 import com.semba.dkbimages.feature.detailsceen.ui.detailRoute
 import com.semba.dkbimages.feature.detailsceen.ui.navigateToDetailScreen

@@ -1,4 +1,4 @@
-package com.semba.dkbimages.compose.navigation
+package com.semba.dkbimages.design.navigation
 
 enum class ScreenDestination {
     HOME,

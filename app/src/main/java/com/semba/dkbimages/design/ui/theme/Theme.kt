@@ -1,4 +1,4 @@
-package com.semba.dkbimages.compose.ui.theme
+package com.semba.dkbimages.design.ui.theme
 
 import android.app.Activity
 import android.os.Build

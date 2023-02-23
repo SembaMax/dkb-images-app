@@ -18,12 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
-import com.semba.dkbimages.compose.navigation.AppNavHost
-import com.semba.dkbimages.compose.ui.theme.DkbimagesappTheme
+import com.semba.dkbimages.design.navigation.AppNavHost
+import com.semba.dkbimages.design.ui.theme.DkbimagesappTheme
 import com.semba.dkbimages.core.NetworkMonitor
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

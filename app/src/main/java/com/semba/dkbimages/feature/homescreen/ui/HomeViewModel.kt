@@ -2,7 +2,7 @@ package com.semba.dkbimages.feature.homescreen.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.semba.dkbimages.compose.navigation.IMAGE_ID_ARG
+import com.semba.dkbimages.design.navigation.IMAGE_ID_ARG
 import com.semba.dkbimages.data.model.ImageModel
 import com.semba.dkbimages.feature.homescreen.domain.GetImagesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -13,12 +13,13 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.semba.dkbimages.R
+import com.semba.dkbimages.design.component.ErrorView
+import com.semba.dkbimages.design.component.LoadingView
 import com.semba.dkbimages.data.model.ImageModel
 
 const val DETAIL_BOTTOM_BAR_HEIGHT = 100
@@ -33,10 +34,13 @@ fun DetailScreen(imageId: Int) {
         viewModel.loadImageDetail(imageId)
     }
 
-    when (uiState) {
-        is DetailUiState.Error -> DetailContent(imageItem = ImageModel.empty()) //TODO: handle ui for error if required
-        DetailUiState.Loading -> DetailContent(imageItem = ImageModel.empty(), showLoading = true)
-        is DetailUiState.Success -> { DetailContent(imageItem = (uiState as DetailUiState.Success).imageItem) }
+    Box(modifier = Modifier.fillMaxSize())
+    {
+        when (uiState) {
+            is DetailUiState.Error -> ErrorView(modifier = Modifier.align(Alignment.Center))
+            DetailUiState.Loading -> LoadingView(modifier = Modifier.align(Alignment.Center))
+            is DetailUiState.Success -> { DetailContent(imageItem = (uiState as DetailUiState.Success).imageItem) }
+        }
     }
 }
 
@@ -127,7 +131,10 @@ fun BottomDetailsSection(modifier: Modifier = Modifier, title: String) {
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = DETAIL_CARD_CONTENT_PADDING.dp, end = DETAIL_CARD_CONTENT_PADDING.dp)
+                .padding(
+                    start = DETAIL_CARD_CONTENT_PADDING.dp,
+                    end = DETAIL_CARD_CONTENT_PADDING.dp
+                )
         )
     }
 }

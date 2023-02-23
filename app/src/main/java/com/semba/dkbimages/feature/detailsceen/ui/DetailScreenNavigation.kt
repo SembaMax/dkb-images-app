@@ -2,8 +2,8 @@ package com.semba.dkbimages.feature.detailsceen.ui
 
 import androidx.navigation.*
 import androidx.navigation.compose.composable
-import com.semba.dkbimages.compose.navigation.IMAGE_ID_ARG
-import com.semba.dkbimages.compose.navigation.withArgs
+import com.semba.dkbimages.design.navigation.IMAGE_ID_ARG
+import com.semba.dkbimages.design.navigation.withArgs
 
 const val detailRoute = "detail_screen_route/{${IMAGE_ID_ARG}}"
 

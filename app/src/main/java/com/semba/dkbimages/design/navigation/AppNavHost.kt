@@ -1,4 +1,4 @@
-package com.semba.dkbimages.compose.navigation
+package com.semba.dkbimages.design.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
