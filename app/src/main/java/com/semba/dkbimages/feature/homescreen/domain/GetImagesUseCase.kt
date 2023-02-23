@@ -16,6 +16,6 @@ class GetImagesUseCase @Inject constructor(private val repository: Repository) {
             HomeScreenUiState.Success(it.data ?: emptyList())
         }
     }
-    .catch { emit(HomeScreenUiState.Error(-1)) }
-    .onStart { emit(HomeScreenUiState.Loading) }
+        .onStart { emit(HomeScreenUiState.Loading) }
+        .catch { emit(HomeScreenUiState.Error(-1)) }
 }

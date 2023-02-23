@@ -21,10 +21,10 @@ class HomeViewModel @Inject constructor(private val getImagesUseCase: GetImagesU
     )
 
     init {
-        fetchImages()
+        loadData()
     }
 
-    fun reload() {
+    fun loadData() {
         fetchImages()
     }
 
@@ -32,6 +32,16 @@ class HomeViewModel @Inject constructor(private val getImagesUseCase: GetImagesU
         getImagesUseCase()
             .onEach { result -> _uiState.value = result }
             .launchIn(viewModelScope)
+    }
+
+    fun handleLoading()
+    {
+        _uiState.value = HomeScreenUiState.Loading
+    }
+
+    fun handleError(errorCode: Int?)
+    {
+        _uiState.value = HomeScreenUiState.Error(errorCode)
     }
 
 }

@@ -1,19 +1,24 @@
 package com.semba.dkbimages.feature.homescreen.ui
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.semba.dkbimages.compose.navigation.ScreenDestination
 import com.semba.dkbimages.data.model.ImageModel
+import com.semba.dkbimages.R
 
 @Composable
 fun HomeScreen(navigateTo: (screenDestination: ScreenDestination, args: Map<String, String>) -> Unit) {
@@ -25,8 +30,8 @@ fun HomeScreen(navigateTo: (screenDestination: ScreenDestination, args: Map<Stri
     {
         when (uiState)
         {
-            is HomeScreenUiState.Error -> ErrorView()
-            HomeScreenUiState.Loading -> LoadingView()
+            is HomeScreenUiState.Error -> ErrorView(modifier = Modifier.align(Alignment.Center))
+            HomeScreenUiState.Loading -> LoadingView(modifier = Modifier.align(Alignment.Center))
             is HomeScreenUiState.Success ->
             {
                 HomeContent(imageItems = (uiState as HomeScreenUiState.Success).imageItems,
@@ -54,11 +59,17 @@ fun HomeContent(modifier: Modifier = Modifier, gridState: LazyGridState = rememb
 }
 
 @Composable
-fun LoadingView() {
-
+fun LoadingView(modifier: Modifier = Modifier) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround) {
+        CircularProgressIndicator(modifier.size(40.dp))
+        Text(text = stringResource(id = R.string.loading), style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.onBackground, modifier = Modifier.padding(5.dp))
+    }
 }
 
 @Composable
-fun ErrorView() {
-
+fun ErrorView(modifier: Modifier = Modifier) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround) {
+        Icon(painter = painterResource(id = R.drawable.ic_error), contentDescription = "error", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(80.dp))
+        Text(text = stringResource(id = R.string.error), style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
+    }
 }

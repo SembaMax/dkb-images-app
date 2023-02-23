@@ -8,7 +8,7 @@ data class ImageItem (
     @SerialName("id") val id: Int,
     @SerialName("albumId") val albumId: Int,
     @SerialName("title") val title: String,
-    @SerialName("url") val imageURL: String,
+    @SerialName("url") val url: String,
     @SerialName("thumbnailUrl") val thumbnailUrl: String,
         )
 
@@ -18,6 +18,6 @@ fun ImageItem.toModel() : ImageModel =
         id = this.id,
         albumId = this.albumId,
         title = this.title,
-        imageURL = this.imageURL,
+        imageURL = this.url,
         thumbnailUrl = this.thumbnailUrl,
     )

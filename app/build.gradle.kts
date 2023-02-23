@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
 }
 
 android {
@@ -16,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.semba.dkbimages.testing.AppTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -76,9 +77,10 @@ dependencies {
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
 
     //Coil
     implementation("io.coil-kt:coil:2.2.2")
@@ -86,12 +88,19 @@ dependencies {
 
 
     //Testing
+    api("androidx.test:runner:1.5.2")
+    api("androidx.test:rules:1.5.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.3.3")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.3")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("com.google.dagger:hilt-android-testing:2.44.2")
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44.2")
+    api("com.google.dagger:hilt-android-testing:2.44.2")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
+    testImplementation("com.google.code.gson:gson:2.10.1")
+
+    //Mockk
+    testImplementation("io.mockk:mockk:1.13.4")
 }
