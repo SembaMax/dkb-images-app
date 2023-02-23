@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "dkb-images-app"
+rootProject.name = "DkbImagesApp"
 include(":app")

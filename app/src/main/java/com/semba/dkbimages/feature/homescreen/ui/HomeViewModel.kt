@@ -34,16 +34,6 @@ class HomeViewModel @Inject constructor(private val getImagesUseCase: GetImagesU
             .launchIn(viewModelScope)
     }
 
-    fun handleLoading()
-    {
-        _uiState.value = HomeScreenUiState.Loading
-    }
-
-    fun handleError(errorCode: Int?)
-    {
-        _uiState.value = HomeScreenUiState.Error(errorCode)
-    }
-
 }
 
 fun ImageModel.toArgs(): Map<String,String> = mapOf(
