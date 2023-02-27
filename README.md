@@ -64,3 +64,26 @@ A simple app that fetches placeholder images api and displays image content
 - JUnit4
 - Mockk
 - MockWebServer
+
+
+## Android Keystores
+
+[Keystores Folder](https://github.com/SembaMax/dkb-images-app/tree/main/certificates)
+
+#### debug.jks
+
+path:  /certifactes/debug.jks
+
+    keytool -list -v -keystore debug.jks -alias debug -storepass "cQ1IS#&&193s8KSz" -keypass "cQ1IS#&&193s8KSz" 
+    SHA1: 4D:15:C4:CC:94:14:91:48:28:ED:28:15:4F:22:91:18:B5:8F:0E:19
+
+#### release.jks
+
+path:  /certifactes/release.jks
+
+    keytool -list -v -keystore release.jks -alias release -storepass "5Tk@9sS25r0%5U*4" -keypass "5Tk@9sS25r0%5U*4"
+    SHA1: 19:68:DD:0B:C1:FB:06:1A:35:F0:38:E4:7B:A7:60:15:F2:76:D8:97
+    
+    
+## App Version
+[APK](https://github.com/SembaMax/dkb-images-app/tree/main/apk)
