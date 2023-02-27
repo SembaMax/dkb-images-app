@@ -21,6 +21,6 @@ private val args = listOf(
 fun NavGraphBuilder.detailScreen() {
     composable(route = detailRoute, arguments = args) { navBackStackEntry ->
         val imageId = navBackStackEntry.arguments?.getInt(IMAGE_ID_ARG) ?: 0
-        DetailScreen(imageId)
+        DetailRoute(imageId = imageId)
     }
 }

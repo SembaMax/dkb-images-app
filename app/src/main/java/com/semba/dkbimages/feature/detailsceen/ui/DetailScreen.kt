@@ -26,20 +26,24 @@ const val DETAIL_BOTTOM_BAR_HEIGHT = 100
 const val DETAIL_CARD_CONTENT_PADDING = 5
 
 @Composable
-fun DetailScreen(imageId: Int) {
-    val viewModel: DetailViewModel = hiltViewModel()
+fun DetailRoute(modifier: Modifier = Modifier, viewModel: DetailViewModel = hiltViewModel(), imageId: Int) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = true) {
         viewModel.loadImageDetail(imageId)
     }
 
+    DetailScreen(modifier = modifier, uiState = uiState)
+}
+@Composable
+fun DetailScreen(modifier: Modifier = Modifier, uiState: DetailUiState) {
+
     Box(modifier = Modifier.fillMaxSize())
     {
         when (uiState) {
             is DetailUiState.Error -> ErrorView(modifier = Modifier.align(Alignment.Center))
             DetailUiState.Loading -> LoadingView(modifier = Modifier.align(Alignment.Center))
-            is DetailUiState.Success -> { DetailContent(imageItem = (uiState as DetailUiState.Success).imageItem) }
+            is DetailUiState.Success -> { DetailContent(imageItem = uiState.imageItem) }
         }
     }
 }
