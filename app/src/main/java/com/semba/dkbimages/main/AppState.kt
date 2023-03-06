@@ -1,4 +1,4 @@
-package com.semba.dkbimages
+package com.semba.dkbimages.main
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavDestination

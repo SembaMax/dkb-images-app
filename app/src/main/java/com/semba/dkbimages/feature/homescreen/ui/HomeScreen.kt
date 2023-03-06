@@ -26,7 +26,6 @@ fun HomeRoute(modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltView
 @Composable
 fun HomeScreen(uiState: HomeScreenUiState, modifier: Modifier = Modifier, navigateTo: (screenDestination: ScreenDestination, args: Map<String, String>) -> Unit = {_,_->}) {
 
-
     Box(modifier = Modifier.fillMaxSize())
     {
         when (uiState)

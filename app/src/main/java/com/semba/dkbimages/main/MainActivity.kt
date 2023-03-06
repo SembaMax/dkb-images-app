@@ -1,4 +1,4 @@
-package com.semba.dkbimages
+package com.semba.dkbimages.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.semba.dkbimages.R
 import com.semba.dkbimages.design.navigation.AppNavHost
 import com.semba.dkbimages.design.ui.theme.DkbimagesappTheme
 import com.semba.dkbimages.core.NetworkMonitor
